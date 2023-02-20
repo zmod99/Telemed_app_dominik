@@ -54,10 +54,7 @@ public class DoctorController {
     public String deletePatient(long id, Model model) {
         recordRepository.deleteByUserId(id);
         userRepository.deleteById(id);
-        model.addAttribute("currUser", currUser);
-        model.addAttribute(userRepository.findByType(1));
-        return "doctor_dashboard.html";
-
+        return "redirect:/patients";
     }
 
 }
