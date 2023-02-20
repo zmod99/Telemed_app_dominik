@@ -47,9 +47,7 @@ public class DoctorController {
     public String addPatient(String email, String password, String firstName, String lastName, String phoneNumber, String mbo, Model model) {
         User newUser = new User(email, password, firstName, lastName, phoneNumber, mbo);
         userRepository.save(newUser);
-        model.addAttribute("user", userRepository.findByType(1));
-        model.addAttribute("currUser",currUser);
-        return "doctor_dashboard.html";
+        return "redirect:/patients";
     }
 
     @GetMapping("/deletePatient")
