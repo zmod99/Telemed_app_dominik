@@ -60,6 +60,7 @@ public class DoctorController {
     @GetMapping("/showRecords")
     public String showRecords(long id, Model model) {
         model.addAttribute("record", recordRepository.findByUserId(id));
+        model.addAttribute(currUser);
         return "patient_records.html";
     }
 
