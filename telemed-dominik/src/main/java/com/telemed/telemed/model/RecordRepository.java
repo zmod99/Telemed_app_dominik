@@ -12,4 +12,6 @@ public interface RecordRepository extends CrudRepository<Record, Long> {
 
     void deleteByUserId(long id);
 
+    List<Record> findByUserId(long id);
+
 }

@@ -115,10 +115,18 @@
 
             <tbody>
             <tr th:each="user : ${userList}">
-                <td th:text="${user.firstName}"></td>
-                <td th:text="${user.lastName}"></td>
-                <td th:text="${user.mbo}"></td>
-                <td th:text="${user.phoneNumber}"></td>
+                <a th:href="@{'/showRecords?id=' + ${user.id}}">
+                    <td th:text="${user.firstName}"></td>
+                </a>
+                <a th:href="@{'/showRecords?id=' + ${user.id}}">
+                    <td th:text="${user.lastName}"></td>
+                </a>
+                <a th:href="@{'/showRecords?id=' + ${user.id}}">
+                    <td th:text="${user.mbo}"></td>
+                </a>
+                <a th:href="@{'/showRecords?id=' + ${user.id}}">
+                    <td th:text="${user.phoneNumber}"></td>
+                </a>
                 <td><a th:href="@{'/deletePatient?id=' + ${user.id}}" onclick="return confirm('Jeste li sigurni?');">Izbriši</a></td>
             </tr>
 

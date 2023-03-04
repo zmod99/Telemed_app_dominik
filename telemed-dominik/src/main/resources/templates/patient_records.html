@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacijent - zapisi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 1.3rem;
+            width: 99%;
+
+        }
+
+
+
+        input {
+            padding: 0.8em 0 0.8em 0;
+            border: 2px solid #ae0640;
+            border-radius: 0.5em;
+        }
+
+        ::placeholder {
+            text-align: center;
+        }
+
+        input {
+            text-align: center;
+
+        }
+
+        footer {
+
+            font-size: 1.3rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 2rem;
+            background-color: #ae0640;
+            color: white;
+            text-align: center;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            font-weight: bold;
+        }
+
+        img {
+            pointer-events: none;
+        }
+    </style>
+
+<body>
+<div class="row justify-content-center align-items-center">
+    <div class="col-3">
+
+        <img class="img-responsive" src="heart_logo.png" alt="heart_logo"
+             style="width: 175px; height: 131px; margin: 32px 32px 32px 32px; float: left;">
+
+
+    </div>
+
+    <div class="col-8"></div>
+    <div class="col-1">
+        <img class="img-responsive" src="user_logo2.png" alt="user_logo"
+             style="width: 80px; height: 80px; margin: 64px 32px 16px 32px;  float:right">
+        <p style="margin-bottom:0px;  margin-right:32px; font-weight:bold; text-align:right " >dr. med.</p>
+        <p style="margin-bottom:0px; margin-right:32px;font-weight:bold; text-align:right"  th:text = "${currUser.firstName}"></p>
+        <p  style="margin-bottom:0px; margin-right:32px;font-weight:bold; text-align:right"  th:text = "${currUser.lastName}"></p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<div class="container">
+
+
+
+    <h1>Pacijenti</h1>
+    <br><br>
+
+    <table id="userlist" class="table table-condensed table-hover">
+        <thead>
+        <tr>
+            <th>Sistolički tlak</th>
+            <th>Dijastolički tlak</th>
+            <th>Broj otkucaja</th>
+            <th>Kratki opis zdravstvenog stanja</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="record : ${recordList}">
+            <td th:text="${record.sisTlak}"></td>
+            <td th:text="${record.dijTlak}"></td>
+            <td th:text="${record.bpm}"></td>
+            <td th:text="${record.opisStanja}"></td>
+        </tr>
+
+        </tbody>
+
+    </table>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-auto">
+            <button type="button" class="btn btn-danger btn-block mt-4 p-3 mb-5"
+                    style="background-color: #ae0640; font-size: 2rem;"
+                    onclick="window.location.href='/newPatient'">Novi unos</button>
+        </div>
+    </div>
+    <br><br>
+
+
+</div>
+<footer class="d-none d-xl-block">©Telemed 2023 Health IT. All rights reserved.</footer>
+</body>
+
+</html>

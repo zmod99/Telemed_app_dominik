@@ -57,4 +57,10 @@ public class DoctorController {
         return "redirect:/patients";
     }
 
+    @GetMapping("/showRecords")
+    public String showRecords(long id, Model model) {
+        model.addAttribute("record", recordRepository.findByUserId(id));
+        return "patient_records.html";
+    }
+
 }
