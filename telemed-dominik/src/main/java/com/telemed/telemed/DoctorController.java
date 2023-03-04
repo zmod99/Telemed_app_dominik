@@ -44,7 +44,7 @@ public class DoctorController {
     }
 
     @GetMapping("/addPatient")
-    public String addPatient(String email, String password, String firstName, String lastName, String phoneNumber, String mbo, Model model) {
+    public String addPatient(String email, String password, String firstName, String lastName, String phoneNumber, String mbo) {
         User newUser = new User(email, password, firstName, lastName, phoneNumber, mbo);
         userRepository.save(newUser);
         return "redirect:/patients";
